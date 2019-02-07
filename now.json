@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "name": "gothing",
+    "alias": [
+        "rygofaas"
+    ],
+    "github": {
+        "enabled": true,
+        "silent": true,
+        "autoAlias": true
+    },
+    "builds": [{
+        "src": "backend/**/*.go",
+        "use": "@now/go"
+    }, {
+        "src": "package.json",
+        "use": "@now/static-build"
+    }],
+    "routes": [{
+        "src": "/api/(.*)",
+        "dest": "/backend/$1/function.go"
+    }, {
+        "src": "/",
+        "dest": "/index.html"
+    }],
+    "public": true
+}
