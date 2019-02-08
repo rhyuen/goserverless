@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 )
 
@@ -12,7 +11,6 @@ type Node struct {
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hi, go stuff. deux")
 
 	data := Node{"This is a Title", "This is an author"}
 

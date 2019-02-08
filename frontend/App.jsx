@@ -10,8 +10,8 @@ class App extends Component {
   componentDidMount() {
     axios
       .get("/api/index")
-      .then(data => {
-        this.setState({ serverdata: data });
+      .then(res => {
+        this.setState({ serverdata: res.data });
       })
       .catch(e => {
         console.log(e);
@@ -21,7 +21,9 @@ class App extends Component {
   render() {
     return (
       <div className="root">
-        hi, root, latest version<h1>{this.state.serverdata}</h1>
+        <h1>Dummy Data</h1>
+        <h1>{this.state.serverdata.title}</h1>
+        <h1>{this.state.serverdata.author}</h1>
       </div>
     );
   }
